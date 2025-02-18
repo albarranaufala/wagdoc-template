@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build-watch:style": "tailwindcss -i ./wag_documentation_template/static/css/tailwind_input.css -o ./wag_documentation_template/static/css/tailwind.css --watch",
+    "build-minify:style": "tailwindcss -i ./wag_documentation_template/static/css/tailwind_input.css -o ./wag_documentation_template/static/css/tailwind.css --minify",
+    "dev": "npm run build-watch:style",
+    "prod": "npm run build-minify:style"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.6",
+    "tailwindcss": "^4.0.6"
+  }
+}

@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+.doc-richtext h2 {
+    @apply mt-12 text-2xl font-medium border-b border-gray-200 pb-1.5;
+}
+
+.doc-richtext p {
+    @apply my-6;
+}
+
+.doc-richtext img {
+    @apply my-6 rounded-lg;
+}
+
+.doc-richtext ul, .doc-richtext ol {
+    @apply my-6 pl-6;
+}
+
+.doc-richtext ul {
+    @apply list-disc;
+}
+
+.doc-richtext ol {
+    @apply list-decimal;
+}
+
+/* get <code> that not in first or last */
+.doc-richtext code:not(:first-child) {
+    @apply bg-gray-200 px-1.5 py-0.5 rounded text-gray-500 text-sm;
+}
+
+.doc-richtext code:not(:last-child) {
+    @apply bg-gray-200 px-1.5 py-0.5 rounded text-gray-500 text-sm;
+}
+
+.doc-richtext pre {
+    @apply my-6 text-sm;
+}
+
+.doc-richtext pre code {
+    @apply rounded-lg;
+}
