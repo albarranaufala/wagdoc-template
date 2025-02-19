@@ -36,3 +36,21 @@ class DocumentationPage(Page):
         return (
             DocumentationPage.objects.ancestor_of(self).filter(is_root_doc=True).first()
         )
+
+    def get_next_doc(self):
+        first_child = self.get_children().live().in_menu().first()
+        if first_child:
+            return first_child
+        next_sibling = self.get_next_siblings().live().in_menu().first()
+        if next_sibling:
+            return next_sibling
+        return None
+
+    def get_prev_doc(self):
+        prev_sibling = self.get_prev_siblings().live().in_menu().first()
+        if prev_sibling:
+            return prev_sibling
+        parent = self.get_parent()
+        if not parent.is_root_doc:
+            return parent
+        return None
