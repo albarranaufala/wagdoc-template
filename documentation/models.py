@@ -20,6 +20,7 @@ class DocumentationPage(Page):
             "hr",
             "image",
             "code",
+            "blockquote",
         ],
     )
     is_root_doc = models.BooleanField(default=False)

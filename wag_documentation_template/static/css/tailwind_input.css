@@ -24,12 +24,7 @@
     @apply list-decimal;
 }
 
-/* get <code> that not in first or last */
-.doc-richtext code:not(:first-child) {
-    @apply bg-gray-200 px-1.5 py-0.5 rounded text-gray-500 text-sm;
-}
-
-.doc-richtext code:not(:last-child) {
+.doc-richtext code.inline-code {
     @apply bg-gray-200 px-1.5 py-0.5 rounded text-gray-500 text-sm;
 }
 
@@ -39,4 +34,16 @@
 
 .doc-richtext pre code {
     @apply rounded-lg;
+}
+
+.doc-richtext img.full-width {
+    @apply w-full;
+}
+
+.doc-richtext img.right {
+    @apply ml-auto;
+}
+
+.doc-richtext blockquote {
+    @apply my-6 pl-6 border-l-4 border-gray-200 text-gray-500;
 }
