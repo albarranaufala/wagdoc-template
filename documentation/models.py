@@ -66,8 +66,8 @@ class DocumentationPage(Page):
 
 
 @register_setting
-class AppSettings(BaseSiteSetting):
-    app_logo = models.ForeignKey(
+class DocumentationSettings(BaseSiteSetting):
+    doc_logo = models.ForeignKey(
         get_image_model(),
         null=True,
         blank=True,
@@ -76,5 +76,5 @@ class AppSettings(BaseSiteSetting):
     )
 
     panels = [
-        FieldPanel("app_logo"),
+        FieldPanel("doc_logo"),
     ]
