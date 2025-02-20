@@ -30,8 +30,9 @@ class DocumentationPage(Page):
         FieldPanel("is_root_doc"),
     ]
 
+    subpage_types = ["documentation.DocumentationPage"]
+
     def get_root_doc(self):
-        print("TESt", self)
         if self.is_root_doc:
             return self
         return (
@@ -48,6 +49,8 @@ class DocumentationPage(Page):
         return None
 
     def get_prev_doc(self):
+        if self.is_root_doc:
+            return None
         prev_sibling = self.get_prev_siblings().live().in_menu().first()
         if prev_sibling:
             return prev_sibling
