@@ -3,6 +3,11 @@ from django.db import models
 from wagtail.models import Page
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
+from wagtail.contrib.settings.models import (
+    BaseSiteSetting,
+    register_setting,
+)
+from wagtail.images import get_image_model
 
 
 class DocumentationPage(Page):
@@ -58,3 +63,18 @@ class DocumentationPage(Page):
         if not getattr(parent, "is_root_doc", False):
             return parent
         return None
+
+
+@register_setting
+class AppSettings(BaseSiteSetting):
+    app_logo = models.ForeignKey(
+        get_image_model(),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    panels = [
+        FieldPanel("app_logo"),
+    ]
