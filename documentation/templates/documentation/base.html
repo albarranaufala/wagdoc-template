@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="min-h-screen flex flex-col">
-    <div class="bg-white border-b border-gray-200 px-5 py-2.5 sticky top-0 z-20">
+    <div class="bg-white border-b border-gray-200 px-5 py-2.5 fixed top-0 inset-x-0 z-20">
         <div class="flex items-center gap-5">
             <button id="burger" type="button" aria-label="Expand sidebar" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -22,29 +22,27 @@
             {% endif %}
         </div>
     </div>
-    <div class="flex-1 flex relative">
-        <div id="sidebar"
-            class="py-6 border-r bg-white border-gray-200 w-[280px] flex flex-shrink-0 flex-col gap-4 z-10 absolute inset-y-0 transition ease-in-out -translate-x-full md:static md:translate-x-0">
-            {% for child_doc in page.get_root_doc.get_children.live.in_menu %}
-            <div>
-                <a href="{{ child_doc.url }}"
-                    class="block px-8 py-2 font-semibold text-lg transition border-l-4 border-transparent {% if page.url == child_doc.url %} text-blue-400 !border-blue-400 {% endif %} hover:text-blue-400">
-                    {{ child_doc.title }}
-                </a>
-                {% for sub_child_doc in child_doc.get_children.live.in_menu %}
-                <a href="{{ sub_child_doc.url }}"
-                    class="block relative px-12 py-2 text-sm transition border-l-4 border-transparent {% if page.url == sub_child_doc.url %} text-blue-400 font-medium !border-blue-400 {% endif %} hover:text-blue-400">
-                    {{ sub_child_doc.title }}
-                </a>
-                {% endfor %}
-            </div>
+    <div id="sidebar"
+        class="py-6 border-r bg-white border-gray-200 w-80 flex flex-shrink-0 flex-col gap-4 z-10 fixed top-[61px] bottom-0 transition ease-in-out -translate-x-full overflow-y-auto md:translate-x-0">
+        {% for child_doc in page.get_root_doc.get_children.live.in_menu %}
+        <div>
+            <a href="{{ child_doc.url }}"
+                class="block px-8 py-2 font-semibold text-lg transition border-l-4 border-transparent {% if page.url == child_doc.url %} text-blue-400 !border-blue-400 {% endif %} hover:text-blue-400">
+                {{ child_doc.title }}
+            </a>
+            {% for sub_child_doc in child_doc.get_children.live.in_menu %}
+            <a href="{{ sub_child_doc.url }}"
+                class="block relative px-12 py-2 text-sm transition border-l-4 border-transparent {% if page.url == sub_child_doc.url %} text-blue-400 font-medium !border-blue-400 {% endif %} hover:text-blue-400">
+                {{ sub_child_doc.title }}
+            </a>
             {% endfor %}
         </div>
-        <div class="flex-1 p-6 min-w-0">
-            <div class="max-w-3xl mx-auto">
-                {% block documentation_content %}
-                {% endblock %}
-            </div>
+        {% endfor %}
+    </div>
+    <div class="mt-[61px] flex-1 p-6 min-w-0 md:ml-80">
+        <div class="max-w-3xl mx-auto">
+            {% block documentation_content %}
+            {% endblock %}
         </div>
     </div>
 </div>
