@@ -31,6 +31,7 @@ class DocumentationPage(Page):
     ]
 
     def get_root_doc(self):
+        print("TESt", self)
         if self.is_root_doc:
             return self
         return (
@@ -51,6 +52,6 @@ class DocumentationPage(Page):
         if prev_sibling:
             return prev_sibling
         parent = self.get_parent()
-        if not parent.is_root_doc:
+        if not getattr(parent, "is_root_doc", False):
             return parent
         return None
