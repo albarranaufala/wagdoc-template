@@ -51,6 +51,9 @@ class DocumentationPage(Page):
         next_sibling = self.get_next_siblings().live().in_menu().first()
         if next_sibling:
             return next_sibling
+        next_parent = self.get_parent().get_next_siblings().live().in_menu().first()
+        if next_parent:
+            return next_parent
         return None
 
     def get_prev_doc(self):

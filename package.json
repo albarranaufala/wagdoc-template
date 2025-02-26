@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build-watch:style": "tailwindcss -i ./wag_documentation_template/static/css/tailwind_input.css -o ./wag_documentation_template/static/css/tailwind.css --watch",
-    "build-minify:style": "tailwindcss -i ./wag_documentation_template/static/css/tailwind_input.css -o ./wag_documentation_template/static/css/tailwind.css --minify",
+    "build-watch:style": "tailwindcss -i ./documentation/static_input/wagdoc.css -o ./documentation/static/css/wagdoc.css --watch",
+    "build-minify:style": "tailwindcss -i ./documentation/static_input/wagdoc.css -o ./documentation/static/css/wagdoc.css --minify",
     "dev": "npm run build-watch:style",
     "prod": "npm run build-minify:style"
   },
