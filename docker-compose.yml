@@ -4,5 +4,8 @@ services:
     ports:
       - "${WEB_PORT}:8000"
     volumes:
-      - ./db.sqlite3:/app/db.sqlite3
+      - db_data:/data
       - ./media:/app/media
+
+volumes:
+  db_data:
