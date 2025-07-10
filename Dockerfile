@@ -45,7 +45,8 @@ RUN mkdir /data \
     && chown wagtail:wagtail /data
 
 RUN mkdir -p /app/media \
-    && chown -R wagtail:wagtail /app/media
+    && chown -R wagtail:wagtail /app/media \
+    && chmod 755 /app/media
 
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
