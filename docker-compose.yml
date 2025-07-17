@@ -5,10 +5,8 @@ services:
       - "${WEB_PORT}:8000"
     volumes:
       - db_data:/data
-      - media:/app/media
-      - static_data:/app/static
+      - ./media:/app/media
+      - ./static:/app/static
 
 volumes:
   db_data:
-  media:
-  static_data:
